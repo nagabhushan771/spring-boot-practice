@@ -1,13 +1,17 @@
 package com.nags.springBoot.practice.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
+	
+	@Value("${spring.datasource.username}")
+	private String welcomeMessage;
 
 	@GetMapping("/")
 	public String helloWorld() {
-		return "Hey Nags, How you doin???";
+		return welcomeMessage;
 	}
 }
