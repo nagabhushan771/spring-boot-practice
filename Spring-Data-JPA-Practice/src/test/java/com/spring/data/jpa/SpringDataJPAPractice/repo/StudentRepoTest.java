@@ -1,6 +1,7 @@
 package com.spring.data.jpa.SpringDataJPAPractice.repo;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.intThat;
 
 import java.util.List;
 
@@ -93,9 +94,15 @@ class StudentRepoTest {
 		System.out.println(student.toString());
 	}
 	
-	@Test
+//	@Test
 	public void getStudentByEmailIdByNativeNamedParam() {
 		Student student = studentRepo.getStudentByEmailIdNativeNamedParam("anil2@gmail.com");
 		System.out.println(student.toString());
+	}
+	
+//	@Test
+	public void updateFirstNameByEmailId() {
+		int n = studentRepo.updateFirstNameByEmailId("Nagabhushana", "nags5454@gmail.com");
+		System.out.println(n);
 	}
 }

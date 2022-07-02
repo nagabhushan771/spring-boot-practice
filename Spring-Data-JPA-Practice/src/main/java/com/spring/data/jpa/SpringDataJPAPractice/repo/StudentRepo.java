@@ -3,8 +3,10 @@ package com.spring.data.jpa.SpringDataJPAPractice.repo;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.data.jpa.SpringDataJPAPractice.entity.Student;
 
@@ -46,4 +48,14 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
 			nativeQuery = true
 	)
 	public Student getStudentByEmailIdNativeNamedParam(@Param("emailId") String emailId);
+	
+	//now lets try updating the values in the database
+	@Modifying//since we are modifying the data of the database so we need to add the modifying annotation
+	@Transactional//since we are taking the data and updating the data and then again saving back it 
+	//to the db this can be a transaction
+	@Query(
+			value = "update tbl_student set first_name = ?1 where email_address = ?2",
+			nativeQuery = true
+	)
+	public int updateFirstNameByEmailId(String firstName, String emailId);
 }
