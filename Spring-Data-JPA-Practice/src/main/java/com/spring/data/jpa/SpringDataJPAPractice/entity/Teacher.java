@@ -37,12 +37,14 @@ public class Teacher {
 	private String firstName;
 	private String lastName;
 	
-	@OneToMany(
-			cascade = CascadeType.ALL
-	)
-	@JoinColumn(
-			name = "teacher_id",
-			referencedColumnName = "teacherId"
-	)
-	private List<Course> courses;
+	
+	//One to many relationship is not advised we are advised to use Many to one where all we can
+//	@OneToMany(
+//			cascade = CascadeType.ALL
+//	)
+//	@JoinColumn(
+//			name = "teacher_id",
+//			referencedColumnName = "teacherId"
+//	)
+//	private List<Course> courses;
 }

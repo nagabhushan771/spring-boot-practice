@@ -18,7 +18,7 @@ class TeacherRepoTest {
 	@Autowired
 	private TeacherRepo teacherRepo;
 	
-	@Test
+//	@Test
 	public void saveTeacher() {
 		Course courseDBA = Course.builder()
 				.title("DBA")
@@ -31,7 +31,7 @@ class TeacherRepoTest {
 		Teacher teacher = Teacher.builder()
 				.firstName("Prasanna")
 				.lastName("Kumar")
-				.courses(List.of(courseDBA, courseJava))
+//				.courses(List.of(courseDBA, courseJava))
 				.build();
 		teacherRepo.save(teacher);
 
